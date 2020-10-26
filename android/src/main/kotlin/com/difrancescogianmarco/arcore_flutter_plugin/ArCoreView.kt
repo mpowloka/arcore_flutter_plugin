@@ -5,7 +5,6 @@ import android.app.Application
 import android.content.Context
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.GestureDetector
 import android.view.MotionEvent
@@ -258,8 +257,8 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
             override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
 
             override fun onActivityDestroyed(activity: Activity) {
-                Log.i(TAG, "onActivityDestroyed (Just so you know)")
-//                onDestroy()
+                Log.i(TAG, "onActivityDestroyed (Just so you know, also I changed it!)")
+                onDestroy()
 //                dispose()
             }
         }
@@ -321,7 +320,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
             Log.i(TAG, " The plane renderer (enablePlaneRenderer) is set to " + enablePlaneRenderer.toString())
             arSceneView!!.planeRenderer.isVisible = false
         }
-        
+
         result.success(null)
     }
 
