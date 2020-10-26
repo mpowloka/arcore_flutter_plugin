@@ -509,7 +509,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
                 Log.i(TAG, "Goodbye arSceneView.")
 
                 arSceneView?.destroy()
-                arSceneView = null
+                //arSceneView = null
 
             }catch (e : Exception){
                 e.printStackTrace();
