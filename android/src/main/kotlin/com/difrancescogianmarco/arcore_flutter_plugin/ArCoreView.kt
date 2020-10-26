@@ -49,7 +49,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
 
     init {
         methodChannel.setMethodCallHandler(this)
-        arSceneView = ArSceneView(context)
+        arSceneView = ArSceneView(activity)
         // Set up a tap gesture detector.
         gestureDetector = GestureDetector(
                 context,
