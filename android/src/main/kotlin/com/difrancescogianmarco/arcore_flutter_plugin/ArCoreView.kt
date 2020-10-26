@@ -52,7 +52,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
         arSceneView = ArSceneView(activity)
         // Set up a tap gesture detector.
         gestureDetector = GestureDetector(
-                context,
+                activity,
                 object : GestureDetector.SimpleOnGestureListener() {
                     override fun onSingleTapUp(e: MotionEvent): Boolean {
                         onSingleTap(e)
@@ -125,7 +125,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
 
         // Lastly request CAMERA permission which is required by ARCore.
         ArCoreUtils.requestCameraPermission(activity, RC_PERMISSIONS)
-        setupLifeCycle(context)
+        setupLifeCycle(activity)
     }
 
     fun loadMesh(textureBytes: ByteArray?) {
@@ -330,7 +330,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
             return
         }
 
-        RenderableCustomFactory.makeRenderable(activity.applicationContext, flutterArCoreNode) { renderable, t ->
+        RenderableCustomFactory.makeRenderable(activity, flutterArCoreNode) { renderable, t ->
             if (t != null) {
                 result.error("Make Renderable Error", t.localizedMessage, null)
                 return@makeRenderable
@@ -356,7 +356,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
     fun onAddNode(flutterArCoreNode: FlutterArCoreNode, result: MethodChannel.Result?) {
 
         Log.i(TAG, flutterArCoreNode.toString())
-        NodeFactory.makeNode(activity.applicationContext, flutterArCoreNode) { node, throwable ->
+        NodeFactory.makeNode(activity, flutterArCoreNode) { node, throwable ->
 
             Log.i(TAG, "onAddNode inserted ${node?.name}")
 
