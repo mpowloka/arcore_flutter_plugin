@@ -240,7 +240,7 @@ class ArCoreView(val activity: Activity, context: Context, messenger: BinaryMess
             }
 
             override fun onActivityResumed(activity: Activity) {
-                Log.i(TAG, "onActivityResumed")
+                Log.i(TAG, "onActivityResumed. I changed it!
                 onResume()
             }
 
